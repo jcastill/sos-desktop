@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sos-desktop"
+description = "Desktop app to generate, view, and upload sos reports"
+authors = [{name = "Jose Castillo", email = "jcastillo@redhat.com"}]
+requires-python = ">=3.11"
+readme = "README.md"
+license = {text = "GPL-2.0-or-later"}
+dependencies = ["PyQt6>=6.6"]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+dev = ["flake8", "pylint", "tox"]
+
+[project.scripts]
+sos-desktop = "sosdesktop.main:main"
+
+[tool.setuptools.dynamic]
+version = {attr = "sosdesktop.constants.APP_VERSION"}
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["sosdesktop*"]
+
+[tool.setuptools.data-files]
+"share/man/man1" = ["man/sos-desktop.1"]
+

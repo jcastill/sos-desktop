@@ -1,0 +1,3 @@
+# Dependencies are declared in pyproject.toml ([project.dependencies]).
+# This file installs the project (and its deps) in editable mode.
+-e .
